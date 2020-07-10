@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thtf.base.server.mapper.SysJobMapper">
+
+    <resultMap id="BaseResultMap" type="com.thtf.base.api.entity.SysJob">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="dept_id" jdbcType="VARCHAR" property="deptId"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_id" jdbcType="VARCHAR" property="createId"/>
+        <result column="create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_id" jdbcType="VARCHAR" property="updateId"/>
+        <result column="update_name" jdbcType="VARCHAR" property="updateName"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <resultMap id="JobDeptResultMap" type="com.thtf.base.api.vo.SysJobVO">
+        <id column="job_id" jdbcType="VARCHAR" property="id"/>
+        <result column="job_name" jdbcType="INTEGER" property="name"/>
+        <result column="job_sort" jdbcType="INTEGER" property="sort"/>
+        <result column="job_remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="job_create_id" jdbcType="VARCHAR" property="createId"/>
+        <result column="job_create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="job_create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="job_update_id" jdbcType="VARCHAR" property="updateId"/>
+        <result column="job_update_name" jdbcType="VARCHAR" property="updateName"/>
+        <result column="job_update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <association property="dept" javaType="com.thtf.base.api.vo.SysDeptVO">
+            <id column="dept_id" jdbcType="VARCHAR" property="id"/>
+            <result column="dept_name" jdbcType="INTEGER" property="name"/>
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      j.id,
+      j.name,
+      j.dept_id,
+      j.sort,
+      j.remark,
+      j.create_id,
+      j.create_name,
+      j.create_time,
+      j.update_id,
+      j.update_name,
+      j.update_time,
+    </sql>
+
+    <select id="selectJobDeptList" resultMap="JobDeptResultMap">
+        select
+        j.id job_id,
+        j.name job_name,
+        j.sort job_sort,
+        j.remark job_remark,
+        j.create_id job_create_id,
+        j.create_name job_crate_name,
+        j.create_time job_create_time,
+        j.update_id job_update_id,
+        j.update_name job_update_name,
+        j.update_time job_update_time,
+        d.id dept_id,
+        d.name dept_name
+        from sys_job j inner join sys_dept d on j.dept_id = d.id
+        where
+          j.deleted_flag = 0
+          and d.deleted_flag = 0
+          <if test="queryConditionVO.name != null and queryConditionVO.name != ''">
+            and j.name like concat('%', #{queryConditionVO.name}, '%')
+          </if>
+        order by j.sort
+    </select>
+
+</mapper>

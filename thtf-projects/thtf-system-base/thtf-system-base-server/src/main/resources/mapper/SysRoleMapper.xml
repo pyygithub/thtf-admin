@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thtf.base.server.mapper.SysRoleMapper">
+
+  <resultMap id="BaseResultMap" type="com.thtf.base.api.entity.SysRole">
+	<id column="id" jdbcType="VARCHAR" property="id" />
+	<result column="name" jdbcType="VARCHAR" property="name" />
+	<result column="code" jdbcType="VARCHAR" property="code" />
+	<result column="sort" jdbcType="INTEGER" property="sort" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	<result column="create_id" jdbcType="VARCHAR" property="createId" />
+	<result column="create_name" jdbcType="VARCHAR" property="createName" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="update_id" jdbcType="VARCHAR" property="updateId" />
+	<result column="update_name" jdbcType="VARCHAR" property="updateName" />
+	<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+	<result column="deleted_flag" jdbcType="TINYINT" property="deletedFlag" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+      a.id,
+      a.name,
+      a.code,
+      a.sort,
+      a.remark,
+      a.create_id,
+      a.create_name,
+      a.create_time,
+      a.update_id,
+      a.update_name,
+      a.update_time,
+      a.deleted_flag
+  </sql>
+
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thtf.base.server.mapper.SysMenuMapper">
+
+    <resultMap id="BaseResultMap" type="com.thtf.base.api.entity.SysMenu">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
+        <result column="iframe" jdbcType="TINYINT" property="iframe"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="cache" jdbcType="TINYINT" property="cache"/>
+        <result column="hidden" jdbcType="TINYINT" property="hidden"/>
+        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="type" jdbcType="TINYINT" property="type"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="create_id" jdbcType="VARCHAR" property="createId"/>
+        <result column="create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_id" jdbcType="VARCHAR" property="updateId"/>
+        <result column="update_name" jdbcType="VARCHAR" property="updateName"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="deleted_flag" jdbcType="TINYINT" property="deletedFlag"/>
+    </resultMap>
+    <resultMap id="MenuResultMap" type="com.thtf.base.api.vo.SysMenuVO">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
+        <result column="iframe" jdbcType="TINYINT" property="iframe"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="cache" jdbcType="TINYINT" property="cache"/>
+        <result column="hidden" jdbcType="TINYINT" property="hidden"/>
+        <result column="component_name" jdbcType="VARCHAR" property="componentName"/>
+        <result column="component_path" jdbcType="VARCHAR" property="componentPath"/>
+        <result column="type" jdbcType="TINYINT" property="type"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      a.id,
+      a.name,
+      a.parent_id,
+      a.iframe,
+      a.sort,
+      a.icon,
+      a.path,
+      a.cache,
+      a.hidden,
+      a.component_name,
+      a.component_path,
+      a.type,
+      a.permission,
+      a.create_id,
+      a.create_name,
+      a.create_time,
+      a.update_id,
+      a.update_name,
+      a.update_time,
+      a.deleted_flag
+    </sql>
+    <select id="selectMenuListByRoleIds" resultMap="MenuResultMap">
+        select
+            distinct
+            a.id,
+            a.name,
+            a.parent_id,
+            a.iframe,
+            a.sort,
+            a.icon,
+            a.path,
+            a.cache,
+            a.hidden,
+            a.component_name,
+            a.component_path,
+            a.type,
+            a.permission
+        from sys_menu a inner join sys_role_menu b on a.id = b.menu_id
+        where
+        a.deleted_flag = 0
+        and b.role_id in
+        <foreach collection="roleIds" item="roleId" open="(" close=")" separator=",">
+            #{roleId}
+        </foreach>
+    </select>
+
+</mapper>
