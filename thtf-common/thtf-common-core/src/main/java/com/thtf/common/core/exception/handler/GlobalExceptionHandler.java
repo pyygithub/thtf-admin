@@ -70,7 +70,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseResult handleException(MethodArgumentNotValidException e) {
-        log.error("【MethodArgumentNotValidException】", e);
+        log.error("MethodArgumentNotValidException:{}", e.getMessage());
         BindingResult bindingResult = e.getBindingResult();
         ObjectError objectError = bindingResult.getAllErrors().stream().findFirst().get();
         return new ResponseResult(400, objectError.getDefaultMessage());
