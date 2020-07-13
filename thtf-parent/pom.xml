@@ -29,9 +29,11 @@
         <sbu.version>1.9.3</sbu.version>
         <fastjson.version>1.2.60</fastjson.version>
         <swagger.version>2.9.2</swagger.version>
-        <flowable.version>6.5.0</flowable.version>
+        <flowable.version>6.4.1</flowable.version>
         <mysql.version>5.1.46</mysql.version>
         <druid.version>1.1.9</druid.version>
+        <mybatis.version>3.4.6</mybatis.version>
+        <mybatis-spring.version>1.3.2</mybatis-spring.version>
     </properties>
 
     <dependencyManagement>
@@ -72,19 +74,37 @@
                 <artifactId>flowable-spring-boot-starter</artifactId>
                 <version>${flowable.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-ui-modeler-rest</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
             <!-- mysql -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-
             <!-- alibaba的druid 数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- mybatis-spring -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

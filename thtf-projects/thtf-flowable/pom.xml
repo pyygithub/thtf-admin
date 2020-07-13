@@ -11,15 +11,12 @@
 
     <artifactId>thtf-flowable</artifactId>
 
-    <properties>
-        <thtf.version>1.0.0</thtf.version>
-    </properties>
-
     <dependencies>
+        <!-- thtf-flowable-api -->
         <dependency>
             <groupId>com.thtf</groupId>
-            <artifactId>thtf-common-core</artifactId>
-            <version>${thtf.version}</version>
+            <artifactId>thtf-flowable-api</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
