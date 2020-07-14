@@ -10,7 +10,7 @@ import org.springframework.context.annotation.FilterType;
 
 @ComponentScan(basePackages = {"com.thtf", "org.flowable.ui"},
         excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-        classes = {RemoteAccountResource.class, DevelopmentConfiguration.class}))
+                classes = {RemoteAccountResource.class, DevelopmentConfiguration.class}))
 @SpringBootApplication(exclude = {
         SecurityAutoConfiguration.class
 })

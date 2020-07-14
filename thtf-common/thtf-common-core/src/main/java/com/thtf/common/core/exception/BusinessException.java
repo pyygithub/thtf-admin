@@ -3,6 +3,8 @@ package com.thtf.common.core.exception;
 import com.thtf.common.core.response.ResponseCode;
 import lombok.Data;
 
+import java.text.MessageFormat;
+
 /**
  * ---------------------------
  * 自定义异常类

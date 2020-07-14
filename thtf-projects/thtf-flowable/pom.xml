@@ -15,16 +15,7 @@
         <!-- thtf-flowable-api -->
         <dependency>
             <groupId>com.thtf</groupId>
-<<<<<<< HEAD
             <artifactId>thtf-flowable-api</artifactId>
-=======
-            <artifactId>thtf-common-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.thtf</groupId>
-            <artifactId>thtf-common-swagger</artifactId>
->>>>>>> 59ac17c4250de9da373996cccc9f05df7bc47f8f
             <version>1.0.0</version>
         </dependency>
     </dependencies>

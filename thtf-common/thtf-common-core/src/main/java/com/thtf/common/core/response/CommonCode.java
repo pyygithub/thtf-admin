@@ -10,7 +10,7 @@ package com.thtf.common.core.response;
  * ---------------------------
  */
 public enum CommonCode implements ResponseCode{
-    SUCCESS(200,"操作成功！"),
+    SUCCESS(200,"SUCCESS"),
     FAIL(500,"未知异常，请联系管理员！"),
 
 
