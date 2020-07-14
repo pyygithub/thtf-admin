@@ -3,11 +3,17 @@ package com.thtf.flowable.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.func.Func;
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.thtf.common.core.exception.ExceptionCast;
+import com.thtf.common.core.response.Pager;
 import com.thtf.flowable.constants.FlowableEngineConstant;
+import com.thtf.flowable.entity.FlowModel;
 import com.thtf.flowable.enums.FlowableEngineCode;
+import com.thtf.flowable.mapper.FlowMapper;
 import com.thtf.flowable.service.FlowableManagerService;
 import com.thtf.flowable.utils.UserUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +31,7 @@ import org.flowable.ui.modeler.model.ModelRepresentation;
 import org.flowable.ui.modeler.repository.ModelRepository;
 import org.flowable.ui.modeler.serviceapi.ModelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,13 +46,13 @@ import java.util.List;
 public class FlowableManagerServiceImpl implements FlowableManagerService {
 
     @Autowired
-    protected ModelRepository modelRepository;
+    private ModelRepository modelRepository;
 
     @Autowired
-    protected ModelService modelService;
+    private ModelService modelService;
 
     @Autowired
-    protected ObjectMapper objectMapper;
+    private FlowMapper flowMapper;
 
     protected BpmnXMLConverter bpmnXmlConverter = new BpmnXMLConverter();
     protected BpmnJsonConverter bpmnJsonConverter = new BpmnJsonConverter();
@@ -116,5 +123,22 @@ public class FlowableManagerServiceImpl implements FlowableManagerService {
         } else {
             ExceptionCast.cast(FlowableEngineCode.FLOW_FILE_TYPE_INVALID);
         }
+    }
+
+    @Override
+    public Pager<FlowModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize) {
+        LambdaQueryWrapper<FlowModel> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper
+                .like(StrUtil.isNotBlank(modelKey), FlowModel::getModelKey, modelKey)
+                .like(StrUtil.isNotBlank(name), FlowModel::getName, name)
+                .orderByDesc(FlowModel::getCreated);
+
+        Page<FlowModel> page = new Page(pageNum, pageSize);
+        List<FlowModel> records = flowMapper.selectPage(page, queryWrapper).getRecords();
+
+        Pager<FlowModel> modelPager = new Pager<>();
+        modelPager.setTotal(page.getTotal());
+        modelPager.setRecords(records);
+        return modelPager;
     }
 }

@@ -25,6 +25,12 @@
             <artifactId>thtf-common-swagger</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!-- thtf-common-data -->
+        <dependency>
+            <groupId>com.thtf</groupId>
+            <artifactId>thtf-common-data</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--flowable  set -->
         <dependency>
             <groupId>org.flowable</groupId>

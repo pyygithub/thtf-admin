@@ -1,5 +1,7 @@
 package com.thtf.flowable.service;
 
+import com.thtf.common.core.response.Pager;
+import com.thtf.flowable.entity.FlowModel;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface FlowableManagerService {
@@ -13,4 +15,15 @@ public interface FlowableManagerService {
      * @return
      */
     void uploadProcessModelFile(MultipartFile file, String tenantIds, String userId);
+
+    /**
+     * 流程模板分页模糊列表
+     *
+     * @param modelKey  模型标识
+     * @param name      模型名称
+     * @param pageNum   当前页码
+     * @param pageSize  分页尺寸
+     * @return
+     */
+    Pager<FlowModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize);
 }
