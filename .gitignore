@@ -1,0 +1,59 @@
+#过滤文件夹target,.idea
+/target
+/.idea
+/out
+*.iml
+*.log
+*.log.gz
+
+#编译文件
+*.class
+
+#包文件
+*.jar
+*.war
+*.zip
+*.rar
+*.tar.gz
+
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+
+# Operating System Files
+
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
+
+# Build Artifacts
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
+# Eclipse Project Files
+
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA Files
+
+*.iml
+*.ipr
+*.iws
+*.idea
+*.class
+!/logs/
+!/logs/
+/thtf-common/thtf-common-auth/target/
+/thtf-projects/thtf-flowable/target/
+/thtf-projects/thtf-flowable-api/target/
+/thtf-projects/thtf-flowable-design/target/
+!/logs/

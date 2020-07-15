@@ -25,13 +25,7 @@
             <artifactId>thtf-common-swagger</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!-- thtf-common-data -->
-        <dependency>
-            <groupId>com.thtf</groupId>
-            <artifactId>thtf-common-data</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <!--flowable  set -->
+        <!--flowable -->
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter</artifactId>
@@ -44,20 +38,9 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!-- alibaba的druid 数据库连接池 -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-        <!-- mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <!-- mybatis-spring -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -17,7 +17,6 @@
     <modules>
         <module>thtf-common-core</module>
         <module>thtf-common-swagger</module>
-        <module>thtf-common-data</module>
         <module>thtf-common-auth</module>
     </modules>
 

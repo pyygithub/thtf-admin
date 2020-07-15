@@ -1,0 +1,58 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "com.thtf.common.core.properties.JwtProperties",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.base64-secret",
+      "type": "java.lang.String",
+      "description": "签名密钥",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties"
+    },
+    {
+      "name": "jwt.client-id",
+      "type": "java.lang.String",
+      "description": "代表这个JWT的签发主体",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties"
+    },
+    {
+      "name": "jwt.expires-second",
+      "type": "java.lang.Integer",
+      "description": "失效时间：单位秒",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "jwt.name",
+      "type": "java.lang.String",
+      "description": "代表这个JWT的接收对象",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties"
+    },
+    {
+      "name": "jwt.role-premission-key",
+      "type": "java.lang.String",
+      "description": "用户角色权限标识",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties",
+      "defaultValue": "role_permissions"
+    },
+    {
+      "name": "jwt.token-key",
+      "type": "java.lang.String",
+      "description": "token key",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties",
+      "defaultValue": "Authorization"
+    },
+    {
+      "name": "jwt.token-prefix",
+      "type": "java.lang.String",
+      "description": "token value 前缀",
+      "sourceType": "com.thtf.common.core.properties.JwtProperties",
+      "defaultValue": "Bearer "
+    }
+  ],
+  "hints": []
+}

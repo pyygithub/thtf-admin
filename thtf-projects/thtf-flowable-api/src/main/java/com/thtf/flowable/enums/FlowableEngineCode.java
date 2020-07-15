@@ -14,7 +14,11 @@ import com.thtf.common.core.response.ResponseCode;
 public enum FlowableEngineCode implements ResponseCode {
     FLOW_FILE_TYPE_INVALID(50001,"Invalid file name, only .bpmn20.xml files are supported"),
     FLOW_FILE_NOT_FOUND(50002,"No process found in definition！"),
-    FLOW_FILE_UPLOAD_FAIL(50003,"Upload file failed！");
+    FLOW_FILE_UPLOAD_FAIL(50003,"Upload file failed！"),
+    FLOW_DEPLOY_FAIL(50004,"Flow deploy failed！"),
+    FLOW_GENERATE_BPMN_FAIL(50005,"Could not generate BPMN 2.0 model！"),
+    FLOW_NO_FOUND_MODEL(50006,"Could not found model！"),
+    FLOW_DELETE_FAIL(50007,"Flow model delete fail !");
 
 
     /**

@@ -1,0 +1,5 @@
+com\thtf\common\auth\config\WebSecurityConfig.class
+com\thtf\common\auth\handler\CustomAuthExceptionEntryPoint.class
+com\thtf\common\auth\config\TokenConfig.class
+com\thtf\common\auth\handler\CustomAccessDeniedHandler.class
+com\thtf\common\auth\config\ResourceServerConfig.class
