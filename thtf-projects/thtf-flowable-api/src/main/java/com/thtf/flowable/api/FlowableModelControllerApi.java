@@ -96,7 +96,7 @@ public interface FlowableModelControllerApi {
      * @param modelId 模板ID
      * @return
      */
-    @GetMapping(value = "/loadXml/{modelId}")
+    @GetMapping(PATH_PREFIX + "/loadXml/{modelId}")
     @ApiOperation(value = "获取流程模板XML", notes = "获取流程模板XML")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "modelId", value = "模板ID", required = true, dataType = "string", paramType = "path"),
@@ -109,7 +109,7 @@ public interface FlowableModelControllerApi {
      * @param modelId 模板ID
      * @return
      */
-    @GetMapping(value = "/loadPng/{modelId}")
+    @GetMapping(PATH_PREFIX + "/loadPng/{modelId}")
     @ApiOperation(value = "获取流程模板图片", notes = "获取流程模板图片（png）")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "modelId", value = "模板ID", required = true, dataType = "string", paramType = "path"),

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0e5bf9d-bdff-40b4-9d5a-dbcaf9d0e660" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_10.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_11.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_12.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_13.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_14.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_4.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_6.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_7.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_8.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-ERROR-2020-07-10_9.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_10.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_11.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_12.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_13.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_15.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_6.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_7.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_8.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_9.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-design-INFO-2020-07-10_6.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/flowable-design-INFO-2020-07-10_7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_10.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_11.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_11.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_12.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_12.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_13.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_13.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_14.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_14.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_15.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_15.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_6.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_7.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_8.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-INFO-2020-07-10_9.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/logs/flowable-WARN-2020-07-10_4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/test.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/warn.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/src/main/java/com/thtf/flowable/api/FlowableModelControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/src/main/java/com/thtf/flowable/api/FlowableModelControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/src/main/java/com/thtf/flowable/api/FlowableProcessDefinitionControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/src/main/java/com/thtf/flowable/api/FlowableProcessDefinitionControllerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/target/classes/com/thtf/flowable/api/FlowableModelControllerApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/target/classes/com/thtf/flowable/api/FlowableModelControllerApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/target/classes/com/thtf/flowable/api/FlowableProcessDefinitionControllerApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-api/target/classes/com/thtf/flowable/api/FlowableProcessDefinitionControllerApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-design/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-design/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable-design/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable-design/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/controller/FlowableProcessDefinitionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/controller/FlowableProcessDefinitionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/service/FlowableProcessDefinitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/service/FlowableProcessDefinitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/service/impl/FlowableProcessDefinitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/src/main/java/com/thtf/flowable/service/impl/FlowableProcessDefinitionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/controller/FlowableProcessDefinitionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/controller/FlowableProcessDefinitionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/service/FlowableProcessDefinitionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/service/FlowableProcessDefinitionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/service/impl/FlowableProcessDefinitionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/thtf-projects/thtf-flowable/target/classes/com/thtf/flowable/service/impl/FlowableProcessDefinitionServiceImpl.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\Administrator\.m2\repository" />
+        <option name="mavenHome" value="C:/Java/apache-maven-3.6.3-aliyun" />
+        <option name="userSettingsFile" value="C:\Java\apache-maven-3.6.3-aliyun\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eUOjPiSs9zBbsW6CppF3wjDJsA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BladeX" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.thtf.flowable.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects\thtf-flowable\src\main\resources" />
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects\thtf-flowable\src\main\java\com\thtf\flowable\config" />
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects\thtf-flowable\src\main\java\com\thtf\flowable" />
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-common\thtf-common-core\src\main\java\com\thtf\common\core\utils" />
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.thtf.flowable.api" />
+      <recent name="com.thtf.flowable.entity" />
+      <recent name="com.thtf.flowable.config" />
+      <recent name="com.thtf.flowable.inteceptor" />
+      <recent name="com.thtf.flowable.interceptor" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects\thtf-flowable\src\main\resources\mapper" />
+      <recent name="C:\Users\Administrator\Desktop\thtf-admin\thtf-projects" />
+    </key>
+  </component>
+  <component name="RestServicesNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="RunManager" selected="Spring Boot.FlowableApplication">
+    <configuration name="FlowableApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="thtf-flowable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thtf.flowable.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.thtf.flowable.FlowableApplication" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlowableDesignApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="thtf-flowable-design" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thtf.flowable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.thtf.flowable.FlowableDesignApplication" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.FlowableApplication" />
+      <item itemvalue="Spring Boot.FlowableDesignApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.FlowableApplication" />
+        <item itemvalue="Spring Boot.FlowableDesignApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0e5bf9d-bdff-40b4-9d5a-dbcaf9d0e660" name="Default Changelist" comment="" />
+      <created>1594372839125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594372839125</updated>
+      <workItem from="1594372840374" duration="2839000" />
+      <workItem from="1594603663694" duration="18168000" />
+      <workItem from="1594687374992" duration="2717000" />
+      <workItem from="1594702696467" duration="38293000" />
+    </task>
+    <task id="LOCAL-00001" summary="工作流模板和定义">
+      <created>1594795949205</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594795949205</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/Administrator/Desktop/thtf-admin/thtf-common" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+        <option value="2" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="工作流模板和定义" />
+    <option name="LAST_COMMIT_MESSAGE" value="工作流模板和定义" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="177" key="#Project_Structure" timestamp="1594606805455">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1594606805455" />
+    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594713716475">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594713716475" />
+    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1594796733855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594796733855" />
+    <state x="499" y="463" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1594712368593">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="499" y="463" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594712368593" />
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594795163318">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="403" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594795163318" />
+    <state x="690" y="265" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594714122857">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="265" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594714122857" />
+    <state x="347" y="110" key="CommitChangelistDialog2" timestamp="1594795875333">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="347" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594795875333" />
+    <state width="1049" height="596" key="DebuggerActiveHint" timestamp="1594805380842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1049" height="596" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1594805380842" />
+    <state x="370" y="199" width="1200" height="776" key="DiffContextDialog" timestamp="1594606765130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="370" y="199" width="1200" height="776" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594606765130" />
+    <state x="938" y="312" key="FileChooserDialogImpl" timestamp="1594800243293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="938" y="312" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594800243293" />
+    <state width="1876" height="342" key="GridCell.Tab.0.bottom" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.0.center" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.0.left" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.0.right" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.1.center" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.1.left" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.2.bottom" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.2.center" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.2.left" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state width="1876" height="342" key="GridCell.Tab.2.right" timestamp="1594805630249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594805630249" />
+    <state x="738" y="292" key="IDE.errors.dialog" timestamp="1594608701888">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="738" y="292" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594608701888" />
+    <state x="597" y="229" key="RollbackChangesDialog" timestamp="1594627487883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="597" y="229" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594627487883" />
+    <state x="440" y="93" key="SettingsEditor" timestamp="1594372967771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="93" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594372967771" />
+    <state x="910" y="230" key="Vcs.Push.Dialog.v2" timestamp="1594795952490">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="910" y="230" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594795952490" />
+    <state x="1073" y="469" key="extract.method.dialog" timestamp="1594777189160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1073" y="469" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594777189160" />
+    <state x="669" y="250" width="786" height="590" key="find.popup" timestamp="1594779968059">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="250" width="786" height="590" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594779968059" />
+    <state x="666" y="386" width="1251" height="518" key="new project wizard" timestamp="1594606644994">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="386" width="1251" height="518" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1594606644994" />
+    <state x="529" y="235" key="run.anything.popup" timestamp="1594776887089">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="529" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594776887089" />
+    <state x="667" y="441" width="672" height="678" key="search.everywhere.popup" timestamp="1594776930651">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="441" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594776930651" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/flowable/flowable-ui-modeler-logic/6.4.1/flowable-ui-modeler-logic-6.4.1-sources.jar!/org/flowable/ui/modeler/repository/ModelRepository.java</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/flowable/flowable-ui-modeler-logic/6.4.2/flowable-ui-modeler-logic-6.4.2-sources.jar!/org/flowable/ui/modeler/service/ModelServiceImpl.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/flowable/flowable-ui-modeler-logic/6.4.2/flowable-ui-modeler-logic-6.4.2-sources.jar!/org/flowable/ui/modeler/service/ModelServiceImpl.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/flowable/flowable-ui-modeler-logic/6.4.2/flowable-ui-modeler-logic-6.4.2-sources.jar!/org/flowable/ui/modeler/service/ModelServiceImpl.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/flowable/flowable-ui-modeler-logic/6.4.2/flowable-ui-modeler-logic-6.4.2-sources.jar!/org/flowable/ui/modeler/repository/ModelRepositoryImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

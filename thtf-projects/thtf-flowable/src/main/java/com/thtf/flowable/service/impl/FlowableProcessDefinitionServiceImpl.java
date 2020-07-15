@@ -1,11 +1,14 @@
 package com.thtf.flowable.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import com.thtf.common.core.exception.BusinessException;
 import com.thtf.common.core.response.Pager;
 import com.thtf.flowable.entity.FlowProcessDefinition;
+import com.thtf.flowable.enums.FlowableEngineCode;
 import com.thtf.flowable.service.FlowableProcessDefinitionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.flowable.common.engine.impl.util.IoUtil;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.impl.persistence.entity.ProcessDefinitionEntityImpl;
 import org.flowable.engine.repository.Deployment;
@@ -14,6 +17,7 @@ import org.flowable.engine.repository.ProcessDefinitionQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,5 +62,35 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
         processDefinitionPager.setTotal(processDefinitionQuery.count());
         processDefinitionPager.setRecords(flowProcessDefinitionList);
         return processDefinitionPager;
+    }
+
+    @Override
+    public byte[] getProcessDefinitionXMLByModelId(String id) {
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
+        if (null == processDefinition) {
+            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+        }
+        InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getResourceName());
+        byte[] xmlInputStream = IoUtil.readInputStream(inputStream, "xml inputStream name");
+        return xmlInputStream;
+    }
+
+    @Override
+    public InputStream getProcessDefinitionPngByModelId(String id) {
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
+        if (null == processDefinition) {
+            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+        }
+        InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getDiagramResourceName());
+        return inputStream;
+    }
+
+    @Override
+    public void deleteById(String id) {
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
+        if (null == processDefinition) {
+            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+        }
+        repositoryService.deleteDeployment(processDefinition.getDeploymentId(), true);
     }
 }

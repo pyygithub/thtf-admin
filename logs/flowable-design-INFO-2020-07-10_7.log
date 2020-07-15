@@ -1,0 +1,84 @@
+10:14:39.155 [main] INFO  com.thtf.flowable.FlowableApplication - Starting FlowableApplication on PC-202007060852 with PID 14108 (C:\Users\Administrator\Desktop\thtf-admin\thtf-projects\thtf-flowable\target\classes started by Administrator in C:\Users\Administrator\Desktop\thtf-admin)
+10:14:39.177 [main] INFO  com.thtf.flowable.FlowableApplication - The following profiles are active: dev
+10:14:40.030 [main] INFO  com.ulisesbocchio.jasyptspringboot.configuration.EnableEncryptablePropertiesBeanFactoryPostProcessor - Post-processing PropertySource instances
+10:14:40.071 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+10:14:40.071 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource commandLineArgs [org.springframework.core.env.SimpleCommandLinePropertySource] to EncryptableEnumerablePropertySourceWrapper
+10:14:40.072 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+10:14:40.072 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+10:14:40.072 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.072 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.072 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+10:14:40.073 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.073 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.073 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource flowable-liquibase-override [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.073 [main] INFO  com.ulisesbocchio.jasyptspringboot.EncryptablePropertySourceConverter - Converting PropertySource class path resource [jwt.properties] [org.springframework.core.io.support.ResourcePropertySource] to EncryptableMapPropertySourceWrapper
+10:14:40.101 [main] INFO  com.ulisesbocchio.jasyptspringboot.filter.DefaultLazyPropertyFilter - Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+10:14:40.175 [main] INFO  com.ulisesbocchio.jasyptspringboot.resolver.DefaultLazyPropertyResolver - Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+10:14:40.177 [main] INFO  com.ulisesbocchio.jasyptspringboot.detector.DefaultLazyPropertyDetector - Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+10:14:40.362 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8002"]
+10:14:40.368 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:14:40.368 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.24]
+10:14:40.448 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/flowable-manager] - Initializing Spring embedded WebApplicationContext
+10:14:41.062 [main] INFO  org.flowable.spring.boot.cmmn.CmmnEngineAutoConfiguration$$EnhancerBySpringCGLIB$$d233ddbd - No deployment resources were found for autodeployment
+10:14:41.123 [main] INFO  org.flowable.spring.boot.dmn.DmnEngineAutoConfiguration$$EnhancerBySpringCGLIB$$29b51faf - No deployment resources were found for autodeployment
+10:14:41.151 [main] INFO  org.flowable.spring.boot.form.FormEngineAutoConfiguration$$EnhancerBySpringCGLIB$$6dda9a1d - No deployment resources were found for autodeployment
+10:14:41.169 [main] INFO  org.flowable.spring.boot.app.AppEngineAutoConfiguration$$EnhancerBySpringCGLIB$$819cd577 - No deployment resources were found for autodeployment
+10:14:41.182 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Found 6 Engine Configurators in total:
+10:14:41.182 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.engine.spring.configurator.SpringProcessEngineConfigurator (priority:50000)
+10:14:41.182 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.idm.spring.configurator.SpringIdmEngineConfigurator (priority:100000)
+10:14:41.183 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.dmn.spring.configurator.SpringDmnEngineConfigurator (priority:200000)
+10:14:41.183 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.form.spring.configurator.SpringFormEngineConfigurator (priority:300000)
+10:14:41.183 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.content.spring.configurator.SpringContentEngineConfigurator (priority:400000)
+10:14:41.183 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - class org.flowable.cmmn.spring.configurator.SpringCmmnEngineConfigurator (priority:500000)
+10:14:41.183 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.engine.spring.configurator.SpringProcessEngineConfigurator (priority:50000)
+10:14:41.186 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.idm.spring.configurator.SpringIdmEngineConfigurator (priority:100000)
+10:14:41.187 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.dmn.spring.configurator.SpringDmnEngineConfigurator (priority:200000)
+10:14:41.189 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.form.spring.configurator.SpringFormEngineConfigurator (priority:300000)
+10:14:41.190 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.content.spring.configurator.SpringContentEngineConfigurator (priority:400000)
+10:14:41.192 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing beforeInit() of class org.flowable.cmmn.spring.configurator.SpringCmmnEngineConfigurator (priority:500000)
+10:14:41.201 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:14:41.331 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:14:42.081 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.engine.spring.configurator.SpringProcessEngineConfigurator (priority:50000)
+10:14:42.234 [main] INFO  org.flowable.engine.impl.ProcessEngineImpl - ProcessEngine default created
+10:14:42.237 [main] INFO  org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor].
+10:14:42.239 [Thread-9] INFO  org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due
+10:14:42.239 [Thread-11] INFO  org.flowable.job.service.impl.asyncexecutor.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+10:14:42.239 [Thread-10] INFO  org.flowable.job.service.impl.asyncexecutor.AcquireTimerJobsRunnable - starting to acquire async jobs due
+10:14:42.278 [main] INFO  org.flowable.engine.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+10:14:42.284 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.idm.spring.configurator.SpringIdmEngineConfigurator (priority:100000)
+10:14:42.308 [main] INFO  org.flowable.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+10:14:42.310 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.dmn.spring.configurator.SpringDmnEngineConfigurator (priority:200000)
+10:14:43.176 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM `thtf-flowable-db`.ACT_DMN_DATABASECHANGELOG
+10:14:43.187 [main] INFO  liquibase.changelog.StandardChangeLogHistoryService - Reading from `thtf-flowable-db`.ACT_DMN_DATABASECHANGELOG
+10:14:43.188 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM `thtf-flowable-db`.ACT_DMN_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+10:14:43.203 [main] INFO  org.flowable.dmn.engine.impl.DmnEngineImpl - DmnEngine default created
+10:14:43.204 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.form.spring.configurator.SpringFormEngineConfigurator (priority:300000)
+10:14:43.228 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM `thtf-flowable-db`.ACT_FO_DATABASECHANGELOG
+10:14:43.241 [main] INFO  liquibase.changelog.StandardChangeLogHistoryService - Reading from `thtf-flowable-db`.ACT_FO_DATABASECHANGELOG
+10:14:43.241 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM `thtf-flowable-db`.ACT_FO_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+10:14:43.248 [main] INFO  org.flowable.form.engine.impl.FormEngineImpl - FormEngine default created
+10:14:43.249 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.content.spring.configurator.SpringContentEngineConfigurator (priority:400000)
+10:14:43.252 [main] INFO  org.flowable.content.spring.SpringContentEngineConfiguration - Content file system root : C:\Users\Administrator\content
+10:14:43.277 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM `thtf-flowable-db`.ACT_CO_DATABASECHANGELOG
+10:14:43.290 [main] INFO  liquibase.changelog.StandardChangeLogHistoryService - Reading from `thtf-flowable-db`.ACT_CO_DATABASECHANGELOG
+10:14:43.290 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM `thtf-flowable-db`.ACT_CO_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+10:14:43.294 [main] INFO  org.flowable.content.engine.impl.ContentEngineImpl - ContentEngine default created
+10:14:43.295 [main] INFO  org.flowable.app.spring.SpringAppEngineConfiguration - Executing configure() of class org.flowable.cmmn.spring.configurator.SpringCmmnEngineConfigurator (priority:500000)
+10:14:43.528 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM `thtf-flowable-db`.ACT_CMMN_DATABASECHANGELOG
+10:14:43.541 [main] INFO  liquibase.changelog.StandardChangeLogHistoryService - Reading from `thtf-flowable-db`.ACT_CMMN_DATABASECHANGELOG
+10:14:43.541 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM `thtf-flowable-db`.ACT_CMMN_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+10:14:43.558 [main] INFO  org.flowable.job.service.impl.asyncexecutor.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.spring.job.service.SpringAsyncExecutor].
+10:14:43.558 [main] INFO  org.flowable.cmmn.engine.impl.CmmnEngineImpl - CmmnEngine default created
+10:14:43.558 [Thread-15] INFO  org.flowable.job.service.impl.asyncexecutor.AcquireTimerJobsRunnable - starting to acquire async jobs due
+10:14:43.558 [Thread-14] INFO  org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due
+10:14:43.558 [Thread-16] INFO  org.flowable.job.service.impl.asyncexecutor.ResetExpiredJobsRunnable - starting to reset expired jobs for engine cmmn
+10:14:43.576 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM `thtf-flowable-db`.ACT_APP_DATABASECHANGELOG
+10:14:43.598 [main] INFO  liquibase.changelog.StandardChangeLogHistoryService - Reading from `thtf-flowable-db`.ACT_APP_DATABASECHANGELOG
+10:14:43.598 [main] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM `thtf-flowable-db`.ACT_APP_DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+10:14:43.601 [main] INFO  org.flowable.app.engine.impl.AppEngineImpl - AppEngine default created
+10:14:43.924 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:14:44.062 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+10:14:44.071 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+10:14:44.134 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+10:14:44.235 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8002"]
+10:14:44.255 [main] INFO  com.thtf.flowable.FlowableApplication - Started FlowableApplication in 5.545 seconds (JVM running for 6.091)

@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * ---------------------------
  * 流程定义API
@@ -51,5 +53,44 @@ public interface FlowableProcessDefinitionControllerApi {
                                                       @RequestParam(required = false, defaultValue = "") String category,
                                                       @RequestParam(required = true, defaultValue = "1") Integer pageNum,
                                                       @RequestParam(required = true, defaultValue = "10") Integer pageSize);
+
+    /**
+     * 获取流程定义XML
+     *
+     * @param id 流程定义ID
+     * @return
+     */
+    @GetMapping(PATH_PREFIX + "/loadXml/{id}")
+    @ApiOperation(value = "获取流程定义XML", notes = "获取流程定义XML")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "path"),
+    })
+    void loadXmlByProcessDefinitionId(@PathVariable String id, HttpServletResponse response);
+
+    /**
+     * 获取流程定义图片（png）
+     *
+     * @param id 流程定义ID
+     * @return
+     */
+    @GetMapping(PATH_PREFIX + "/loadPng/{id}")
+    @ApiOperation(value = "获取流程定义图片", notes = "获取流程定义图片（png）")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "path"),
+    })
+    void loadPngByByProcessDefinitionId(@PathVariable String id, HttpServletResponse response);
+
+    /**
+     * 流程定义删除
+     *
+     * @param id   流程定义ID
+     * @return
+     */
+    @DeleteMapping(PATH_PREFIX + "/{id}")
+    @ApiOperation(value = "流程定义删除", notes = "根据ID删除流程定义")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "path"),
+    })
+    ResponseResult deleteByProcessDefinitionId(@PathVariable String id);
 
 }

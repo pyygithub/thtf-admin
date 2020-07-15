@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="thtf-common-auth" />
+        <module name="thtf-flowable-design" />
+        <module name="thtf-common-core" />
+        <module name="thtf-common-swagger" />
+        <module name="thtf-flowable-api" />
+        <module name="thtf-flowable" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="thtf-common" target="1.8" />
+      <module name="thtf-common-auth" target="1.8" />
+      <module name="thtf-common-core" target="1.8" />
+      <module name="thtf-common-data" target="1.8" />
+      <module name="thtf-common-log" target="1.8" />
+      <module name="thtf-common-swagger" target="1.8" />
+      <module name="thtf-flowable" target="1.8" />
+      <module name="thtf-flowable-api" target="1.8" />
+      <module name="thtf-flowable-design" target="1.8" />
+      <module name="thtf-parent" target="1.8" />
+      <module name="thtf-system-base" target="1.8" />
+      <module name="thtf-system-base-api" target="1.8" />
+      <module name="thtf-system-base-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
