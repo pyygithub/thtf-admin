@@ -3,9 +3,9 @@ package com.thtf.flowable.controller;
 import com.thtf.common.core.response.Pager;
 import com.thtf.common.core.response.ResponseResult;
 import com.thtf.flowable.api.FlowableModelControllerApi;
-import com.thtf.flowable.constants.FlowableEngineConstant;
-import com.thtf.flowable.entity.FlowModel;
-import com.thtf.flowable.enums.FlowableEngineCode;
+import com.thtf.flowable.constants.FlowableConstant;
+import com.thtf.flowable.entity.FlowableModel;
+import com.thtf.flowable.enums.FlowableCode;
 import com.thtf.flowable.service.FlowableModelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,9 @@ public class FlowableModelController implements FlowableModelControllerApi {
 
     @Override
     public ResponseResult checkUpload(MultipartFile file) {
-        boolean temp = Objects.requireNonNull(file.getOriginalFilename()).endsWith(FlowableEngineConstant.SUFFIX);
+        boolean temp = Objects.requireNonNull(file.getOriginalFilename()).endsWith(FlowableConstant.SUFFIX);
         if (!temp) {
-            return new ResponseResult(FlowableEngineCode.FLOW_FILE_TYPE_INVALID);
+            return new ResponseResult(FlowableCode.FLOW_FILE_TYPE_INVALID);
         }
         return ResponseResult.SUCCESS();
     }
@@ -39,8 +39,8 @@ public class FlowableModelController implements FlowableModelControllerApi {
     }
 
     @Override
-    public ResponseResult<Pager<FlowModel>> list(String modelKey, String name, Integer pageNum, Integer pageSize) {
-        Pager<FlowModel> modelPager = flowableModelService.listPage(modelKey, name, pageNum, pageSize);
+    public ResponseResult<Pager<FlowableModel>> list(String modelKey, String name, Integer pageNum, Integer pageSize) {
+        Pager<FlowableModel> modelPager = flowableModelService.listPage(modelKey, name, pageNum, pageSize);
         return ResponseResult.SUCCESS(modelPager);
     }
 

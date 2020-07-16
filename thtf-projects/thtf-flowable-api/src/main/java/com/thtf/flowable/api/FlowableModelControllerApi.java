@@ -2,7 +2,7 @@ package com.thtf.flowable.api;
 
 import com.thtf.common.core.response.Pager;
 import com.thtf.common.core.response.ResponseResult;
-import com.thtf.flowable.entity.FlowModel;
+import com.thtf.flowable.entity.FlowableModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -65,10 +65,10 @@ public interface FlowableModelControllerApi {
             @ApiImplicitParam(name = "pageSize", value = "分页尺寸",  required = true, dataType = "int", paramType = "query"),
     })
     @ApiOperation(value = "流程模板列表查询", notes = "流程模板分页模糊列表")
-    ResponseResult<Pager<FlowModel>> list(@RequestParam(required = false, defaultValue = "") String modelKey,
-                                          @RequestParam(required = false, defaultValue = "") String name,
-                                          @RequestParam(required = true, defaultValue = "1") Integer pageNum,
-                                          @RequestParam(required = true, defaultValue = "10") Integer pageSize);
+    ResponseResult<Pager<FlowableModel>> list(@RequestParam(required = false, defaultValue = "") String modelKey,
+                                              @RequestParam(required = false, defaultValue = "") String name,
+                                              @RequestParam(required = true, defaultValue = "1") Integer pageNum,
+                                              @RequestParam(required = true, defaultValue = "10") Integer pageSize);
 
     /**
      * 模板部署

@@ -11,10 +11,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.thtf.common.core.exception.BusinessException;
 import com.thtf.common.core.exception.ExceptionCast;
 import com.thtf.common.core.response.Pager;
-import com.thtf.flowable.constants.FlowableEngineConstant;
-import com.thtf.flowable.entity.FlowModel;
-import com.thtf.flowable.enums.FlowableEngineCode;
-import com.thtf.flowable.mapper.FlowMapper;
+import com.thtf.flowable.constants.FlowableConstant;
+import com.thtf.flowable.entity.FlowableModel;
+import com.thtf.flowable.enums.FlowableCode;
+import com.thtf.flowable.mapper.FlowableModelMapper;
 import com.thtf.flowable.service.FlowProcessDiagramGenerator;
 import com.thtf.flowable.service.FlowableModelService;
 import com.thtf.flowable.utils.UserUtil;
@@ -49,7 +49,7 @@ import java.util.*;
 
 @Slf4j
 @Service
-public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel> implements FlowableModelService {
+public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, FlowableModel> implements FlowableModelService {
 
     @Autowired
     private ModelRepository modelRepository;
@@ -58,7 +58,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
     private ModelService modelService;
 
     @Autowired
-    private FlowMapper flowMapper;
+    private FlowableModelMapper flowableModelMapper;
 
     @Autowired
     private FlowProcessDiagramGenerator flowProcessDiagramGenerator;
@@ -75,14 +75,14 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
     @Override
     public void uploadProcessModelFile(MultipartFile file, String userId) {
         String fileName = file.getOriginalFilename();
-        if (fileName != null && (fileName.endsWith(FlowableEngineConstant.SUFFIX))) {
+        if (fileName != null && (fileName.endsWith(FlowableConstant.SUFFIX))) {
             try {
                 XMLInputFactory xif = XmlUtil.createSafeXmlInputFactory();
                 InputStreamReader xmlIn = new InputStreamReader(file.getInputStream(), "UTF-8");
                 XMLStreamReader xtr = xif.createXMLStreamReader(xmlIn);
                 BpmnModel bpmnModel = bpmnXmlConverter.convertToBpmnModel(xtr);
                 if (CollUtil.isEmpty(bpmnModel.getProcesses())) {
-                    ExceptionCast.cast(FlowableEngineCode.FLOW_FILE_NOT_FOUND);
+                    ExceptionCast.cast(FlowableCode.FLOW_FILE_NOT_FOUND);
                 }
                 if (0 == bpmnModel.getLocationMap().size()) {
                     BpmnAutoLayout bpmnLayout = new BpmnAutoLayout(bpmnModel);
@@ -131,24 +131,24 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
 
             }catch (Exception e) {
                 log.error("Import failed for {}", fileName, e);
-                ExceptionCast.cast(FlowableEngineCode.FLOW_FILE_UPLOAD_FAIL);
+                ExceptionCast.cast(FlowableCode.FLOW_FILE_UPLOAD_FAIL);
             }
         } else {
-            ExceptionCast.cast(FlowableEngineCode.FLOW_FILE_TYPE_INVALID);
+            ExceptionCast.cast(FlowableCode.FLOW_FILE_TYPE_INVALID);
         }
     }
 
     @Override
-    public Pager<FlowModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize) {
-        LambdaQueryWrapper<FlowModel> queryWrapper = new LambdaQueryWrapper<>();
+    public Pager<FlowableModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize) {
+        LambdaQueryWrapper<FlowableModel> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper
-                .like(StrUtil.isNotBlank(modelKey), FlowModel::getModelKey, modelKey)
-                .like(StrUtil.isNotBlank(name), FlowModel::getName, name)
-                .orderByDesc(FlowModel::getCreated);
+                .like(StrUtil.isNotBlank(modelKey), FlowableModel::getModelKey, modelKey)
+                .like(StrUtil.isNotBlank(name), FlowableModel::getName, name)
+                .orderByDesc(FlowableModel::getCreated);
 
-        IPage<FlowModel> flowModelIPage = flowMapper.selectPage(new Page(pageNum, pageSize), queryWrapper);
+        IPage<FlowableModel> flowModelIPage = flowableModelMapper.selectPage(new Page(pageNum, pageSize), queryWrapper);
 
-        Pager<FlowModel> modelPager = new Pager<>();
+        Pager<FlowableModel> modelPager = new Pager<>();
         modelPager.setTotal(flowModelIPage.getTotal());
         modelPager.setRecords(flowModelIPage.getRecords());
         return modelPager;
@@ -156,14 +156,14 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
 
     @Override
     public void deployModel(String modelId, String category, String tenantIds) {
-        FlowModel model = this.getById(modelId);
+        FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
         byte[] bytes = getBpmnXML(model);
         String processName = model.getName();
-        if (!StrUtil.endWithIgnoreCase(processName, FlowableEngineConstant.SUFFIX)) {
-            processName += FlowableEngineConstant.SUFFIX;
+        if (!StrUtil.endWithIgnoreCase(processName, FlowableConstant.SUFFIX)) {
+            processName += FlowableConstant.SUFFIX;
         }
         String finalProcessName = processName;
         if (StrUtil.isNotEmpty(tenantIds)) {
@@ -180,9 +180,9 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
 
     @Override
     public byte[] getModelXMLByModelId(String modelId) {
-        FlowModel model = this.getById(modelId);
+        FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
         byte[] b = this.getBpmnXML(model);
         return b;
@@ -190,12 +190,12 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
 
     @Override
     public InputStream getModelPngByModelId(String modelId) {
-        FlowModel flowModel = this.getById(modelId);
-        FlowModel model = this.getById(modelId);
+        FlowableModel flowableModel = this.getById(modelId);
+        FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
-        BpmnModel bpmnModel = this.getBpmnModel(flowModel);
+        BpmnModel bpmnModel = this.getBpmnModel(flowableModel);
 
         InputStream is = flowProcessDiagramGenerator.generateDiagram(bpmnModel);
         return is;
@@ -203,9 +203,9 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
 
     @Override
     public void deleteModel(String modelId) {
-        int rowCount = flowMapper.deleteById(modelId);
+        int rowCount = flowableModelMapper.deleteById(modelId);
         if (rowCount != 1) {
-            throw new BusinessException(FlowableEngineCode.FLOW_DELETE_FAIL);
+            throw new BusinessException(FlowableCode.FLOW_DELETE_FAIL);
         }
     }
 
@@ -223,7 +223,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
             logArgs.add(processDefinition.getId());
         }
         if (list.size() == 0) {
-            ExceptionCast.cast(FlowableEngineCode.FLOW_DEPLOY_FAIL);
+            ExceptionCast.cast(FlowableCode.FLOW_DEPLOY_FAIL);
             return false;
         } else {
             log.info(logBuilder.toString(), logArgs.toArray());
@@ -231,7 +231,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
         }
     }
 
-    private byte[] getBpmnXML(FlowModel model) {
+    private byte[] getBpmnXML(FlowableModel model) {
         BpmnModel bpmnModel = getBpmnModel(model);
         return getBpmnXML(bpmnModel);
     }
@@ -248,18 +248,18 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
         return bpmnXmlConverter.convertToXML(bpmnModel);
     }
 
-    private BpmnModel getBpmnModel(FlowModel model) {
+    private BpmnModel getBpmnModel(FlowableModel model) {
         BpmnModel bpmnModel;
         try {
-            Map<String, FlowModel> formMap = new HashMap<>(16);
-            Map<String, FlowModel> decisionTableMap = new HashMap<>(16);
+            Map<String, FlowableModel> formMap = new HashMap<>(16);
+            Map<String, FlowableModel> decisionTableMap = new HashMap<>(16);
 
-            List<FlowModel> referencedModels = baseMapper.findByParentModelId(model.getId());
-            for (FlowModel childModel : referencedModels) {
-                if (FlowModel.MODEL_TYPE_FORM == childModel.getModelType()) {
+            List<FlowableModel> referencedModels = baseMapper.findByParentModelId(model.getId());
+            for (FlowableModel childModel : referencedModels) {
+                if (FlowableModel.MODEL_TYPE_FORM == childModel.getModelType()) {
                     formMap.put(childModel.getId(), childModel);
 
-                } else if (FlowModel.MODEL_TYPE_DECISION_TABLE == childModel.getModelType()) {
+                } else if (FlowableModel.MODEL_TYPE_DECISION_TABLE == childModel.getModelType()) {
                     decisionTableMap.put(childModel.getId(), childModel);
                 }
             }
@@ -267,25 +267,25 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
             return bpmnModel;
         } catch (Exception e) {
             log.error("Could not generate BPMN 2.0 model for {}", model.getId(), e);
-            throw new BusinessException(FlowableEngineCode.FLOW_GENERATE_BPMN_FAIL);
+            throw new BusinessException(FlowableCode.FLOW_GENERATE_BPMN_FAIL);
         }
     }
 
-    private BpmnModel getBpmnModel(FlowModel model, Map<String, FlowModel> formMap, Map<String, FlowModel> decisionTableMap) {
+    private BpmnModel getBpmnModel(FlowableModel model, Map<String, FlowableModel> formMap, Map<String, FlowableModel> decisionTableMap) {
         try {
             ObjectNode editorJsonNode = (ObjectNode) objectMapper.readTree(model.getModelEditorJson());
             Map<String, String> formKeyMap = new HashMap<>(16);
-            for (FlowModel formModel : formMap.values()) {
+            for (FlowableModel formModel : formMap.values()) {
                 formKeyMap.put(formModel.getId(), formModel.getModelKey());
             }
             Map<String, String> decisionTableKeyMap = new HashMap<>(16);
-            for (FlowModel decisionTableModel : decisionTableMap.values()) {
+            for (FlowableModel decisionTableModel : decisionTableMap.values()) {
                 decisionTableKeyMap.put(decisionTableModel.getId(), decisionTableModel.getModelKey());
             }
             return bpmnJsonConverter.convertToBpmnModel(editorJsonNode, formKeyMap, decisionTableKeyMap);
         } catch (Exception e) {
             log.error("Could not generate BPMN 2.0 model for {}", model.getId(), e);
-            throw new BusinessException(FlowableEngineCode.FLOW_GENERATE_BPMN_FAIL);
+            throw new BusinessException(FlowableCode.FLOW_GENERATE_BPMN_FAIL);
         }
     }
 }

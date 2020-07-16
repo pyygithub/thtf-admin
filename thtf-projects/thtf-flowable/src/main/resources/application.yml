@@ -20,8 +20,3 @@ flowable:
       idm-admin:
         user: admin
         password: test
-
-#mybatis-plus配置
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/**Mapper.xml
-  refresh-mapper: true

@@ -1,7 +1,7 @@
 package com.thtf.flowable.service;
 
 import com.thtf.common.core.response.Pager;
-import com.thtf.flowable.entity.FlowModel;
+import com.thtf.flowable.entity.FlowableModel;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public interface FlowableModelService {
      * @param pageSize  分页尺寸
      * @return
      */
-    Pager<FlowModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize);
+    Pager<FlowableModel> listPage(String modelKey, String name, Integer pageNum, Integer pageSize);
 
     /**
      * 模板部署

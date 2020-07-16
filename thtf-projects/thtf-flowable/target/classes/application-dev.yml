@@ -1,8 +1,0 @@
-
-spring:
-  datasource:
-    #基本属性
-    url: jdbc:mysql://localhost:3306/thtf-flowable-db?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.jdbc.Driver

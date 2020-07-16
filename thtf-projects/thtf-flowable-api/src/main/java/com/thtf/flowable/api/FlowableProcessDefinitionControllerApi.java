@@ -2,6 +2,7 @@ package com.thtf.flowable.api;
 
 import com.thtf.common.core.response.Pager;
 import com.thtf.common.core.response.ResponseResult;
+import com.thtf.common.core.validate.EnumValue;
 import com.thtf.flowable.entity.FlowProcessDefinition;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @Api(tags="流程定义API")
 public interface FlowableProcessDefinitionControllerApi {
 
-    String PATH_PREFIX = "/processDefinition";
+    String PATH_PREFIX = "/process/definition";
 
 
 
@@ -92,5 +93,19 @@ public interface FlowableProcessDefinitionControllerApi {
             @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "path"),
     })
     ResponseResult deleteByProcessDefinitionId(@PathVariable String id);
+
+    /**
+     * 激活或挂起流程定义
+     *
+     * @param processDefinitionId   流程定义ID
+     * @return
+     */
+    @DeleteMapping(PATH_PREFIX + "/activate")
+    @ApiOperation(value = "激活或挂起流程定义", notes = "激活或挂起流程定义")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "query"),
+            @ApiImplicitParam(name = "status", value = "1:激活，0:挂起", required = true, dataType = "int", paramType = "query"),
+    })
+    ResponseResult activate(@RequestParam(value = "id") String processDefinitionId, @EnumValue(intValues={0,1}, message = "状态参数错误(1:激活,0:挂起)") @RequestParam Integer status);
 
 }

@@ -3,9 +3,11 @@ package com.thtf.flowable.controller;
 import com.thtf.common.core.response.Pager;
 import com.thtf.common.core.response.ResponseResult;
 import com.thtf.flowable.api.FlowableProcessDefinitionControllerApi;
+import com.thtf.flowable.constants.FlowableConstant;
 import com.thtf.flowable.entity.FlowProcessDefinition;
 import com.thtf.flowable.service.FlowableProcessDefinitionService;
 import lombok.extern.slf4j.Slf4j;
+import org.flowable.engine.RepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,9 @@ import java.io.InputStream;
 @Slf4j
 @RestController
 public class FlowableProcessDefinitionController implements FlowableProcessDefinitionControllerApi {
+
+    @Autowired
+    private RepositoryService repositoryService;
 
     @Autowired
     private FlowableProcessDefinitionService flowableProcessDefinitionService;
@@ -54,8 +59,20 @@ public class FlowableProcessDefinitionController implements FlowableProcessDefin
     }
 
     @Override
-    public ResponseResult deleteByProcessDefinitionId(String id) {
-        flowableProcessDefinitionService.deleteById(id);
+    public ResponseResult deleteByProcessDefinitionId(String processDefinitionId) {
+        flowableProcessDefinitionService.deleteById(processDefinitionId);
+        return ResponseResult.SUCCESS();
+    }
+
+    @Override
+    public ResponseResult activate(String processDefinitionId, Integer status) {
+        if (FlowableConstant.SUSPEND == status){
+            repositoryService.suspendProcessDefinitionById(processDefinitionId, true, null);
+            log.info("挂起成功");
+        } else {
+            repositoryService.activateProcessDefinitionById(processDefinitionId, true, null);
+            log.info("激活成功");
+        }
         return ResponseResult.SUCCESS();
     }
 }

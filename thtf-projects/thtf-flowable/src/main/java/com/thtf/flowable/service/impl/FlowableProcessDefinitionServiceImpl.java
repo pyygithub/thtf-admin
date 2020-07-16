@@ -4,10 +4,9 @@ import cn.hutool.core.util.StrUtil;
 import com.thtf.common.core.exception.BusinessException;
 import com.thtf.common.core.response.Pager;
 import com.thtf.flowable.entity.FlowProcessDefinition;
-import com.thtf.flowable.enums.FlowableEngineCode;
+import com.thtf.flowable.enums.FlowableCode;
 import com.thtf.flowable.service.FlowableProcessDefinitionService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.flowable.common.engine.impl.util.IoUtil;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.impl.persistence.entity.ProcessDefinitionEntityImpl;
@@ -68,7 +67,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public byte[] getProcessDefinitionXMLByModelId(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
         InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getResourceName());
         byte[] xmlInputStream = IoUtil.readInputStream(inputStream, "xml inputStream name");
@@ -79,7 +78,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public InputStream getProcessDefinitionPngByModelId(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
         InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getDiagramResourceName());
         return inputStream;
@@ -89,7 +88,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public void deleteById(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableEngineCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
         }
         repositoryService.deleteDeployment(processDefinition.getDeploymentId(), true);
     }

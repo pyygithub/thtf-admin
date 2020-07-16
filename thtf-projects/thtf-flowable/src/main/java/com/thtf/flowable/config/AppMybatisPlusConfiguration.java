@@ -18,9 +18,7 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@MapperScan(basePackages = {
-        "com.thtf.flowable.mapper"
-},
+@MapperScan(basePackages = {"com.thtf.flowable.mapper"},
         sqlSessionTemplateRef = "appSqlSessionTemplate",
         sqlSessionFactoryRef = "appSqlSessionFactory"
 )
