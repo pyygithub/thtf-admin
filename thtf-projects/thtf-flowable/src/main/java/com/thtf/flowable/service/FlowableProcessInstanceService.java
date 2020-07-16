@@ -10,4 +10,6 @@ public interface FlowableProcessInstanceService {
     String startProcess(StartProcessInstanceVO startProcessInstanceVO);
 
     Pager<ProcessInstanceVO> getList(ProcessInstanceQueryVO processInstanceQueryVO, Integer pageNum, Integer pageSize);
+
+    byte[] processInstanceImageTrack(String processInstanceId);
 }

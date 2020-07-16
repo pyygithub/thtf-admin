@@ -10,10 +10,9 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * ---------------------------
@@ -57,4 +56,16 @@ public interface FlowableProcessInstanceControllerApi {
             @RequestParam(required = true, defaultValue = "1") Integer pageNum,
             @RequestParam(required = true, defaultValue = "10") Integer pageSize);
 
+    /**
+     * 流程实例追踪
+     *
+     * @param processInstanceId
+     * @return
+     */
+    @GetMapping(PATH_PREFIX + "/imageTrack/{processInstanceId}")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "processInstanceId", value = "流程实例ID", required = true, dataType = "string", paramType = "path"),
+    })
+    @ApiOperation(value = "流程实例追踪", notes = "流程实例追踪")
+    void processInstanceImageTrack(@PathVariable String processInstanceId, HttpServletResponse response);
 }
