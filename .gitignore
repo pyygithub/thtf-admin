@@ -57,3 +57,4 @@ dependency-reduced-pom.xml
 /thtf-projects/thtf-flowable-api/target/
 /thtf-projects/thtf-flowable-design/target/
 !/logs/
+/logs/

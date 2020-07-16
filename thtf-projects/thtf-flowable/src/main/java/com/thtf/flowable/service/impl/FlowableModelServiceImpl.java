@@ -3,6 +3,7 @@ package com.thtf.flowable.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -145,12 +146,11 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowMapper, FlowModel>
                 .like(StrUtil.isNotBlank(name), FlowModel::getName, name)
                 .orderByDesc(FlowModel::getCreated);
 
-        Page<FlowModel> page = new Page(pageNum, pageSize);
-        List<FlowModel> records = flowMapper.selectPage(page, queryWrapper).getRecords();
+        IPage<FlowModel> flowModelIPage = flowMapper.selectPage(new Page(pageNum, pageSize), queryWrapper);
 
         Pager<FlowModel> modelPager = new Pager<>();
-        modelPager.setTotal(page.getTotal());
-        modelPager.setRecords(records);
+        modelPager.setTotal(flowModelIPage.getTotal());
+        modelPager.setRecords(flowModelIPage.getRecords());
         return modelPager;
     }
 
