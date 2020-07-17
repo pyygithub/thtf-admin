@@ -19,6 +19,11 @@ public interface FlowableConstant {
     String FLOW_SUBMITTER_VAR = "initiator";
 
     /**
+     * 提交人节点名称
+     */
+    String FLOW_SUBMITTER = "提交人";
+
+    /**
      * 自动跳过节点设置属性
      */
     String FLOWABLE_SKIP_EXPRESSION_ENABLED = "FLOWABLE_SKIP";

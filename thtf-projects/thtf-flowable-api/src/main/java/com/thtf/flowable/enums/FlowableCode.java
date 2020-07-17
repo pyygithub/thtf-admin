@@ -21,7 +21,8 @@ public enum FlowableCode implements ResponseCode {
     FLOW_DELETE_FAIL(50007,"流程模板删除失败!"),
     FLOW_SUSPENDED(50008,"此流程已经挂起,请联系系统管理员!"),
     FLOW_DEFINITION_NO_FOUNED(50009,"流程定义不存在!"),
-    FLOW_INSTANCE_NO_FOUNED(50010,"流程实例不存在!");
+    FLOW_INSTANCE_NO_FOUNED(50010,"流程实例不存在!"),
+    FLOW_TASK_NO_FOUNED(50011,"任务不存在!");
 
 
     /**

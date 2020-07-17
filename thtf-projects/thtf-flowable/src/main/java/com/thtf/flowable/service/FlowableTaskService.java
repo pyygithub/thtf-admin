@@ -1,10 +1,7 @@
 package com.thtf.flowable.service;
 
 import com.thtf.common.core.response.Pager;
-import com.thtf.flowable.vo.ProcessInstanceQueryVO;
-import com.thtf.flowable.vo.ProcessInstanceVO;
-import com.thtf.flowable.vo.TaskQueryVO;
-import com.thtf.flowable.vo.TaskVO;
+import com.thtf.flowable.vo.*;
 
 public interface FlowableTaskService {
     Pager<TaskVO> getTodoTaskList(TaskQueryVO taskQueryVO, Integer pageNum, Integer pageSize);
@@ -12,4 +9,8 @@ public interface FlowableTaskService {
     Pager<TaskVO> getDoneTaskList(TaskQueryVO taskQueryVO, Integer pageNum, Integer pageSize);
 
     Pager<ProcessInstanceVO> getSentTaskList(ProcessInstanceQueryVO processInstanceQueryVO, Integer pageNum, Integer pageSize);
+
+    void complete(ApproveTaskVO approveTaskVO);
+
+    void withdraw(WithdrawTaskVO withdrawTaskVO);
 }

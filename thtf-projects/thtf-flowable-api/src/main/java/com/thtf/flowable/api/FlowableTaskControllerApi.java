@@ -2,7 +2,6 @@ package com.thtf.flowable.api;
 
 import com.thtf.common.core.response.Pager;
 import com.thtf.common.core.response.ResponseResult;
-import com.thtf.common.core.validate.EnumValue;
 import com.thtf.flowable.vo.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -10,8 +9,6 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * ---------------------------
@@ -79,9 +76,29 @@ public interface FlowableTaskControllerApi {
             @ApiImplicitParam(name = "pageNum", value = "当前页码",  required = true, dataType = "int", paramType = "query"),
             @ApiImplicitParam(name = "pageSize", value = "分页尺寸",  required = true, dataType = "int", paramType = "query"),
     })
-    @ApiOperation(value = "获取已发任务列表", notes = "获取已发任务列表")
+    @ApiOperation(value = "获取已发任务列表", notes = "获取已发任务列表分页查询")
     ResponseResult<Pager<ProcessInstanceVO>> sentTasklistPage(
             ProcessInstanceQueryVO processInstanceQueryVO,
             @RequestParam(required = true, defaultValue = "1") Integer pageNum,
             @RequestParam(required = true, defaultValue = "10") Integer pageSize);
+
+    /**
+     * 审批（同意）
+     *
+     * @param approveTaskVO
+     * @return
+     */
+    @PostMapping(PATH_PREFIX + "/approve")
+    @ApiOperation(value = "审批", notes = "任务审批（同意）")
+    ResponseResult approveTask(@Validated @RequestBody ApproveTaskVO approveTaskVO);
+
+    /**
+     * 撤回
+     *
+     * @param withdrawTaskVO
+     * @return
+     */
+    @PostMapping(PATH_PREFIX + "/withdraw")
+    @ApiOperation(value = "撤回", notes = "任务撤回")
+    ResponseResult withdrawTask(@Validated @RequestBody WithdrawTaskVO withdrawTaskVO);
 }
