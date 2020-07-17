@@ -67,7 +67,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public byte[] getProcessDefinitionXMLByModelId(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getResourceName());
         byte[] xmlInputStream = IoUtil.readInputStream(inputStream, "xml inputStream name");
@@ -78,7 +78,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public InputStream getProcessDefinitionPngByModelId(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         InputStream inputStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), processDefinition.getDiagramResourceName());
         return inputStream;
@@ -88,7 +88,7 @@ public class FlowableProcessDefinitionServiceImpl implements FlowableProcessDefi
     public void deleteById(String id) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(id).singleResult();
         if (null == processDefinition) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         repositoryService.deleteDeployment(processDefinition.getDeploymentId(), true);
     }

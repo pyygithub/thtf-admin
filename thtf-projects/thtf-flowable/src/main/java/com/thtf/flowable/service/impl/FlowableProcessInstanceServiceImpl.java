@@ -9,18 +9,23 @@ import com.thtf.flowable.enums.CommentTypeEnum;
 import com.thtf.flowable.enums.FlowableCode;
 import com.thtf.flowable.mapper.FlowableProcessInstanceMapper;
 import com.thtf.flowable.service.FlowProcessDiagramGenerator;
+import com.thtf.flowable.service.FlowableBpmnModelService;
 import com.thtf.flowable.service.FlowableProcessInstanceService;
+import com.thtf.flowable.vo.EndProcessInstanceVO;
 import com.thtf.flowable.vo.ProcessInstanceQueryVO;
 import com.thtf.flowable.vo.ProcessInstanceVO;
 import com.thtf.flowable.vo.StartProcessInstanceVO;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.bpmn.constants.BpmnXMLConstants;
 import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.EndEvent;
+import org.flowable.bpmn.model.Process;
 import org.flowable.common.engine.impl.util.IoUtil;
 import org.flowable.engine.*;
 import org.flowable.engine.history.HistoricActivityInstance;
 import org.flowable.engine.history.HistoricProcessInstance;
 import org.flowable.engine.repository.ProcessDefinition;
+import org.flowable.engine.runtime.Execution;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,10 +33,11 @@ import org.springframework.stereotype.Service;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class FlowableProcessInstanceServiceImpl implements FlowableProcessInstanceService {
+public class FlowableProcessInstanceServiceImpl extends BaseProcessService implements FlowableProcessInstanceService {
 
     @Autowired
     private RuntimeService runtimeService;
@@ -54,12 +60,18 @@ public class FlowableProcessInstanceServiceImpl implements FlowableProcessInstan
     @Autowired
     private FlowProcessDiagramGenerator flowProcessDiagramGenerator;
 
+    @Autowired
+    private FlowableBpmnModelService flowableBpmnModelService;
+
     @Override
     public String startProcess(StartProcessInstanceVO startProcessInstanceVO) {
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
                 .processDefinitionId(startProcessInstanceVO.getProcessDefinitionId())
                 .latestVersion().singleResult();
-        if (processDefinition != null && processDefinition.isSuspended()) {
+        if (processDefinition == null) {
+            throw new BusinessException(FlowableCode.FLOW_DEFINITION_NO_FOUNED);
+        }
+        if (processDefinition.isSuspended()) {
             throw new BusinessException(FlowableCode.FLOW_SUSPENDED);
         }
 
@@ -95,6 +107,35 @@ public class FlowableProcessInstanceServiceImpl implements FlowableProcessInstan
     }
 
     @Override
+    public String endProcess(EndProcessInstanceVO endProcessInstanceVO) {
+        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery()
+                .processInstanceId(endProcessInstanceVO.getProcessInstanceId()).singleResult();
+        if (processInstance == null) {
+            throw new BusinessException(FlowableCode.FLOW_INSTANCE_NO_FOUNED);
+        }
+        if (processInstance.isSuspended()){
+            throw new BusinessException(FlowableCode.FLOW_SUSPENDED);
+        }
+
+        // 添加审批记录
+        endProcessInstanceVO.setMessage("后台执行终止");
+        this.addComment(endProcessInstanceVO.getUserCode(), endProcessInstanceVO.getProcessInstanceId(), CommentTypeEnum.LCZZ.toString(),
+                endProcessInstanceVO.getMessage());
+        // 获取流程结束节点
+        List<EndEvent> endNodes = flowableBpmnModelService.findEndFlowElement(processInstance.getProcessDefinitionId());
+        String endId = endNodes.get(0).getId();
+
+        String processInstanceId = endProcessInstanceVO.getProcessInstanceId();
+        List<Execution> executions = runtimeService.createExecutionQuery().parentId(processInstanceId).list();
+        List<String> executionIds = executions.stream().map(Execution::getId).collect(Collectors.toList());
+        // 执行终止 - 直接跳转到结束节点
+        this.moveExecutionsToSingleActivityId(executionIds, endId);
+        log.info("processInstanceId = {} 终止成功", processInstanceId);
+
+        return processInstanceId;
+    }
+
+    @Override
     public Pager<ProcessInstanceVO> getList(ProcessInstanceQueryVO processInstanceQueryVO, Integer pageNum, Integer pageSize) {
         Page result = flowableProcessInstanceMapper.selectList(new Page(pageNum, pageSize), processInstanceQueryVO);
 
@@ -106,12 +147,12 @@ public class FlowableProcessInstanceServiceImpl implements FlowableProcessInstan
 
     @Override
     public byte[] processInstanceImageTrack(String processInstanceId) {
-        //1.获取当前的流程实例
+        //1. 获取当前的流程实例
         ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
         String processDefinitionId = null;
         List<String> activeActivityIds = new ArrayList<>();
         List<String> highLightedFlows = new ArrayList<>();
-        //2.获取所有的历史轨迹线对象
+        //2. 获取所有的历史轨迹线对象
         List<HistoricActivityInstance> historicSquenceFlows = historyService.createHistoricActivityInstanceQuery()
                 .processInstanceId(processInstanceId).activityType(BpmnXMLConstants.ELEMENT_SEQUENCE_FLOW).list();
         historicSquenceFlows.forEach(historicActivityInstance -> highLightedFlows.add(historicActivityInstance.getActivityId()));
@@ -138,4 +179,5 @@ public class FlowableProcessInstanceServiceImpl implements FlowableProcessInstan
         byte[] datas = IoUtil.readInputStream(inputStream, "image inputStream name");
         return datas;
     }
+
 }

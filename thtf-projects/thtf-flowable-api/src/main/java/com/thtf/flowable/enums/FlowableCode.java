@@ -12,14 +12,16 @@ import com.thtf.common.core.response.ResponseCode;
  * ---------------------------
  */
 public enum FlowableCode implements ResponseCode {
-    FLOW_FILE_TYPE_INVALID(50001,"Invalid file name, only .bpmn20.xml files are supported"),
-    FLOW_FILE_NOT_FOUND(50002,"No process found in definition！"),
-    FLOW_FILE_UPLOAD_FAIL(50003,"Upload file failed！"),
-    FLOW_DEPLOY_FAIL(50004,"Flow deploy failed！"),
-    FLOW_GENERATE_BPMN_FAIL(50005,"Could not generate BPMN 2.0 model！"),
-    FLOW_NO_FOUND_MODEL(50006,"Could not found model！"),
-    FLOW_DELETE_FAIL(50007,"Flow model delete fail !"),
-    FLOW_SUSPENDED(50008,"此流程已经挂起,请联系系统管理员!");
+    FLOW_FILE_TYPE_INVALID(50001,"无效文件(支持文件格式 .bpmn20.xml)"),
+    FLOW_FILE_NOT_FOUND(50002,"流程文件不存在！"),
+    FLOW_FILE_UPLOAD_FAIL(50003,"上传失败！"),
+    FLOW_DEPLOY_FAIL(50004,"部署失败！"),
+    FLOW_GENERATE_BPMN_FAIL(50005,"生成 BPMN 2.0 model失败！"),
+    FLOW_MODEL_NOT_FOUND(50006,"流程模板不存在！"),
+    FLOW_DELETE_FAIL(50007,"流程模板删除失败!"),
+    FLOW_SUSPENDED(50008,"此流程已经挂起,请联系系统管理员!"),
+    FLOW_DEFINITION_NO_FOUNED(50009,"流程定义不存在!"),
+    FLOW_INSTANCE_NO_FOUNED(50010,"流程实例不存在!");
 
 
     /**

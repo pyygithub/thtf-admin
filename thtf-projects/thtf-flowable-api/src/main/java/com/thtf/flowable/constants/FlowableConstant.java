@@ -11,7 +11,7 @@ public interface FlowableConstant {
     /**
      * 挂起状态码
      */
-    Integer SUSPEND = 0;
+    Integer SUSPEND = 2;
 
     /**
      * 提交人的变量名称
@@ -21,6 +21,6 @@ public interface FlowableConstant {
     /**
      * 自动跳过节点设置属性
      */
-    public static final String FLOWABLE_SKIP_EXPRESSION_ENABLED = "_FLOWABLE_SKIP_EXPRESSION_ENABLED";
+    String FLOWABLE_SKIP_EXPRESSION_ENABLED = "_FLOWABLE_SKIP_EXPRESSION_ENABLED";
 
 }

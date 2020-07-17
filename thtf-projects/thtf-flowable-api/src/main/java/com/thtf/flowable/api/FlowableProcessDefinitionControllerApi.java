@@ -100,12 +100,12 @@ public interface FlowableProcessDefinitionControllerApi {
      * @param processDefinitionId   流程定义ID
      * @return
      */
-    @DeleteMapping(PATH_PREFIX + "/activate")
+    @PostMapping(PATH_PREFIX + "/activate")
     @ApiOperation(value = "激活或挂起流程定义", notes = "激活或挂起流程定义")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "流程定义ID", required = true, dataType = "string", paramType = "query"),
-            @ApiImplicitParam(name = "status", value = "1:激活，0:挂起", required = true, dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "status", value = "1:激活，2:挂起", required = true, dataType = "int", paramType = "query"),
     })
-    ResponseResult activate(@RequestParam(value = "id") String processDefinitionId, @EnumValue(intValues={0,1}, message = "状态参数错误(1:激活,0:挂起)") @RequestParam Integer status);
+    ResponseResult suspendOrActivateByProcessDefinitionId(@RequestParam(value = "id") String processDefinitionId, @EnumValue(intValues={0,1}, message = "状态参数错误(1:激活,2:挂起)") @RequestParam Integer status);
 
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * ---------------------------
- * 流程实例VO类
+ * 启动流程实例VO类
  * ---------------------------
  * 作者：  pyy
  * 时间：  2020-07-13 10:29:07
@@ -18,7 +18,7 @@ import java.util.Map;
  * ---------------------------
  */
 @Data
-@ApiModel(value = "StartProcessInstanceVO",description = "流程实例VO类")
+@ApiModel(value = "StartProcessInstanceVO",description = "启动流程实例VO类")
 public class StartProcessInstanceVO implements Serializable {
 
     @ApiModelProperty("流程定义ID")

@@ -158,7 +158,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, F
     public void deployModel(String modelId, String category, String tenantIds) {
         FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         byte[] bytes = getBpmnXML(model);
         String processName = model.getName();
@@ -182,7 +182,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, F
     public byte[] getModelXMLByModelId(String modelId) {
         FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         byte[] b = this.getBpmnXML(model);
         return b;
@@ -193,7 +193,7 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, F
         FlowableModel flowableModel = this.getById(modelId);
         FlowableModel model = this.getById(modelId);
         if (model == null) {
-            throw new BusinessException(FlowableCode.FLOW_NO_FOUND_MODEL);
+            throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
         BpmnModel bpmnModel = this.getBpmnModel(flowableModel);
 

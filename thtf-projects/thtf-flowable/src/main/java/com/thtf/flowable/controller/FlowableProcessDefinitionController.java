@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
+import java.util.Date;
 
 @Slf4j
 @RestController
@@ -65,13 +66,13 @@ public class FlowableProcessDefinitionController implements FlowableProcessDefin
     }
 
     @Override
-    public ResponseResult activate(String processDefinitionId, Integer status) {
+    public ResponseResult suspendOrActivateByProcessDefinitionId(String processDefinitionId, Integer status) {
         if (FlowableConstant.SUSPEND == status){
-            repositoryService.suspendProcessDefinitionById(processDefinitionId, true, null);
-            log.info("挂起成功");
+            repositoryService.suspendProcessDefinitionById(processDefinitionId, true, new Date());
+            log.info("流程定义 processDefinitionId = {}, 挂起成功", processDefinitionId);
         } else {
-            repositoryService.activateProcessDefinitionById(processDefinitionId, true, null);
-            log.info("激活成功");
+            repositoryService.activateProcessDefinitionById(processDefinitionId, true, new Date());
+            log.info("流程定义 processDefinitionId = {}, 激活成功", processDefinitionId);
         }
         return ResponseResult.SUCCESS();
     }
