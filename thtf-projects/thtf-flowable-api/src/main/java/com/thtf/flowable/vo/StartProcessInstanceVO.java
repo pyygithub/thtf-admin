@@ -28,9 +28,7 @@ public class StartProcessInstanceVO implements Serializable {
     @ApiModelProperty("业务系统id")
     @NotBlank(message = "业务系统id不能为空！")
     private String businessKey;
-    /**
-     * 启动流程变量 选填
-     */
+
     @ApiModelProperty("启动流程变量")
     private Map<String, Object> variables;
 
@@ -40,9 +38,7 @@ public class StartProcessInstanceVO implements Serializable {
 
     @ApiModelProperty("租户ID")
     private String tendantId;
-    /**
-     * 表单显示名称 必填
-     */
+
     @ApiModelProperty("表单显示名称")
     @NotBlank(message = "表单显示名称不能为空！")
     private String formName;

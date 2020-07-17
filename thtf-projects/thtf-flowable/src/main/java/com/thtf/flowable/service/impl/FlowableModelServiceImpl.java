@@ -156,47 +156,60 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, F
 
     @Override
     public void deployModel(String modelId, String category, String tenantIds) {
-        FlowableModel model = this.getById(modelId);
+        Model model = modelService.getModel(modelId.trim());
         if (model == null) {
             throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
-        byte[] bytes = getBpmnXML(model);
-        String processName = model.getName();
-        if (!StrUtil.endWithIgnoreCase(processName, FlowableConstant.SUFFIX)) {
-            processName += FlowableConstant.SUFFIX;
-        }
-        String finalProcessName = processName;
-        if (StrUtil.isNotEmpty(tenantIds)) {
+        BpmnModel bpmnModel = modelService.getBpmnModel(model);
+
+        if (StrUtil.isNotBlank(tenantIds)) {
             String[] tenantIdArr = tenantIds.split(",");
             for (String tenantId : tenantIdArr) {
-                Deployment deployment = repositoryService.createDeployment().addBytes(finalProcessName, bytes).name(model.getName()).key(model.getModelKey()).tenantId(tenantId).deploy();
-                deploy(deployment, category);
+                deploy(category, model, bpmnModel, tenantId);
             }
         } else {
-            Deployment deployment = repositoryService.createDeployment().addBytes(finalProcessName, bytes).name(model.getName()).key(model.getModelKey()).deploy();
-            deploy(deployment, category);
+            //必须指定文件后缀名否则部署不成功
+            deploy(category, model, bpmnModel, "");
+        }
+    }
+
+    // 部署流程模板
+    private void deploy(String category, Model model, BpmnModel bpmnModel, String tenantId) {
+        //必须指定文件后缀名否则部署不成功
+        Deployment deployment = repositoryService.createDeployment()
+                .name(model.getName())
+                .key(model.getKey())
+                .category(category)
+                .tenantId(tenantId)
+                .addBpmnModel(model.getKey() + FlowableConstant.SUFFIX, bpmnModel)
+                .deploy();
+        // 根据部署ID获取对应的流程定义列表
+        List<ProcessDefinition> list = repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).list();
+        // 设置流程分类
+        for (ProcessDefinition processDefinition : list) {
+            if (StrUtil.isNotBlank(category)) {
+                repositoryService.setProcessDefinitionCategory(processDefinition.getId(), category);
+            }
         }
     }
 
     @Override
     public byte[] getModelXMLByModelId(String modelId) {
-        FlowableModel model = this.getById(modelId);
+        Model model = modelService.getModel(modelId);
         if (model == null) {
             throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
-        byte[] b = this.getBpmnXML(model);
+        byte[] b = modelService.getBpmnXML(model);
         return b;
     }
 
     @Override
     public InputStream getModelPngByModelId(String modelId) {
-        FlowableModel flowableModel = this.getById(modelId);
-        FlowableModel model = this.getById(modelId);
+        Model model = modelService.getModel(modelId);
         if (model == null) {
             throw new BusinessException(FlowableCode.FLOW_MODEL_NOT_FOUND);
         }
-        BpmnModel bpmnModel = this.getBpmnModel(flowableModel);
-
+        BpmnModel bpmnModel = modelService.getBpmnModel(model, new HashMap<>(), new HashMap<>());
         InputStream is = flowProcessDiagramGenerator.generateDiagram(bpmnModel);
         return is;
     }
@@ -209,83 +222,5 @@ public class FlowableModelServiceImpl extends ServiceImpl<FlowableModelMapper, F
         }
     }
 
-    private boolean deploy(Deployment deployment, String category) {
-        log.debug("流程部署--------deploy:  " + deployment + "  分类---------->" + category);
-        List<ProcessDefinition> list = repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).list();
-        StringBuilder logBuilder = new StringBuilder(500);
-        List<Object> logArgs = new ArrayList<>();
-        // 设置流程分类
-        for (ProcessDefinition processDefinition : list) {
-            if (StrUtil.isNotBlank(category)) {
-                repositoryService.setProcessDefinitionCategory(processDefinition.getId(), category);
-            }
-            logBuilder.append("部署成功,流程ID={} \n");
-            logArgs.add(processDefinition.getId());
-        }
-        if (list.size() == 0) {
-            ExceptionCast.cast(FlowableCode.FLOW_DEPLOY_FAIL);
-            return false;
-        } else {
-            log.info(logBuilder.toString(), logArgs.toArray());
-            return true;
-        }
-    }
 
-    private byte[] getBpmnXML(FlowableModel model) {
-        BpmnModel bpmnModel = getBpmnModel(model);
-        return getBpmnXML(bpmnModel);
-    }
-
-    private byte[] getBpmnXML(BpmnModel bpmnModel) {
-        for (Process process : bpmnModel.getProcesses()) {
-            if (StringUtils.isNotEmpty(process.getId())) {
-                char firstCharacter = process.getId().charAt(0);
-                if (Character.isDigit(firstCharacter)) {
-                    process.setId("a" + process.getId());
-                }
-            }
-        }
-        return bpmnXmlConverter.convertToXML(bpmnModel);
-    }
-
-    private BpmnModel getBpmnModel(FlowableModel model) {
-        BpmnModel bpmnModel;
-        try {
-            Map<String, FlowableModel> formMap = new HashMap<>(16);
-            Map<String, FlowableModel> decisionTableMap = new HashMap<>(16);
-
-            List<FlowableModel> referencedModels = baseMapper.findByParentModelId(model.getId());
-            for (FlowableModel childModel : referencedModels) {
-                if (FlowableModel.MODEL_TYPE_FORM == childModel.getModelType()) {
-                    formMap.put(childModel.getId(), childModel);
-
-                } else if (FlowableModel.MODEL_TYPE_DECISION_TABLE == childModel.getModelType()) {
-                    decisionTableMap.put(childModel.getId(), childModel);
-                }
-            }
-            bpmnModel = getBpmnModel(model, formMap, decisionTableMap);
-            return bpmnModel;
-        } catch (Exception e) {
-            log.error("Could not generate BPMN 2.0 model for {}", model.getId(), e);
-            throw new BusinessException(FlowableCode.FLOW_GENERATE_BPMN_FAIL);
-        }
-    }
-
-    private BpmnModel getBpmnModel(FlowableModel model, Map<String, FlowableModel> formMap, Map<String, FlowableModel> decisionTableMap) {
-        try {
-            ObjectNode editorJsonNode = (ObjectNode) objectMapper.readTree(model.getModelEditorJson());
-            Map<String, String> formKeyMap = new HashMap<>(16);
-            for (FlowableModel formModel : formMap.values()) {
-                formKeyMap.put(formModel.getId(), formModel.getModelKey());
-            }
-            Map<String, String> decisionTableKeyMap = new HashMap<>(16);
-            for (FlowableModel decisionTableModel : decisionTableMap.values()) {
-                decisionTableKeyMap.put(decisionTableModel.getId(), decisionTableModel.getModelKey());
-            }
-            return bpmnJsonConverter.convertToBpmnModel(editorJsonNode, formKeyMap, decisionTableKeyMap);
-        } catch (Exception e) {
-            log.error("Could not generate BPMN 2.0 model for {}", model.getId(), e);
-            throw new BusinessException(FlowableCode.FLOW_GENERATE_BPMN_FAIL);
-        }
-    }
 }

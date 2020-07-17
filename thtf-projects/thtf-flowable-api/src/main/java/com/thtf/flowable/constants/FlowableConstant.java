@@ -21,6 +21,6 @@ public interface FlowableConstant {
     /**
      * 自动跳过节点设置属性
      */
-    String FLOWABLE_SKIP_EXPRESSION_ENABLED = "_FLOWABLE_SKIP_EXPRESSION_ENABLED";
+    String FLOWABLE_SKIP_EXPRESSION_ENABLED = "FLOWABLE_SKIP";
 
 }

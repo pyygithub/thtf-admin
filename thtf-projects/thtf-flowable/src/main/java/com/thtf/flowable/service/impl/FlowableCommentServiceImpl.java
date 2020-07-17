@@ -1,7 +1,7 @@
 package com.thtf.flowable.service.impl;
 
 
-import com.thtf.flowable.cmd.AddHisCommentCmd;
+import com.thtf.flowable.cmd.AddFlowableHisCommentCmd;
 import com.thtf.flowable.enums.CommentTypeEnum;
 import com.thtf.flowable.mapper.FlowableCommentMapper;
 import com.thtf.flowable.service.FlowableCommentService;
@@ -19,7 +19,7 @@ public class FlowableCommentServiceImpl extends BaseProcessService implements Fl
 
     @Override
     public void addComment(CommentVO comment) {
-        managementService.executeCommand(new AddHisCommentCmd(comment.getTaskId(), comment.getUserId(), comment.getProcessInstanceId(),
+        managementService.executeCommand(new AddFlowableHisCommentCmd(comment.getTaskId(), comment.getUserId(), comment.getProcessInstanceId(),
                 comment.getType(), comment.getMessage()));
     }
 

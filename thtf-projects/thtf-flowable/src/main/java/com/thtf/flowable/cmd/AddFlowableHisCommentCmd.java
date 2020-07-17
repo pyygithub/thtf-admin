@@ -14,7 +14,7 @@ import org.flowable.engine.task.Event;
 /**
  * 添加历史审批记录
  */
-public class AddHisCommentCmd implements Command<Comment> {
+public class AddFlowableHisCommentCmd implements Command<Comment> {
 
     protected String taskId;
     protected String userId;
@@ -22,7 +22,7 @@ public class AddHisCommentCmd implements Command<Comment> {
     protected String type;
     protected String message;
 
-    public AddHisCommentCmd(String taskId, String userId, String processInstanceId, String type, String message) {
+    public AddFlowableHisCommentCmd(String taskId, String userId, String processInstanceId, String type, String message) {
         this.taskId = taskId;
         this.userId = userId;
         this.processInstanceId = processInstanceId;
